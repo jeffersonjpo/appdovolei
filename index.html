@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#4b0d61">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Voleizinho da Mazela — Racha de Vôlei</title>
+<style>
+:root{--purple:#4b0d61;--purple2:#6d177f;--pink:#d26bc5;--pink2:#edd0e9;--bg:#f6f2f7;--card:#fff;--ink:#231a27;--muted:#746979;--line:#e3d8e7;--ok:#258b50;--danger:#b64150;--gold:#b8861c;--shadow:0 10px 28px rgba(56,10,72,.10)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:15px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select,textarea{font:inherit}button{touch-action:manipulation}body{padding-bottom:82px}.hidden{display:none!important}.app{max-width:980px;margin:auto}.screen{display:none}.screen.active{display:block}.topbar{position:sticky;top:0;z-index:30;background:linear-gradient(135deg,#3d084f,#671277);color:#fff;box-shadow:0 4px 18px rgba(32,6,42,.22);padding:8px 10px calc(8px + env(safe-area-inset-top))}.topbar-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}.top-logo{width:118px;height:52px;object-fit:contain;object-position:center;border-radius:7px;flex:none}.brand{min-width:0}.brand h1{margin:0;font-size:16px;line-height:1.15;font-weight:900}.brand small{display:block;margin-top:2px;font-size:11px;opacity:.78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.top-actions{display:flex;gap:6px;align-items:center}.icon-btn,.btn{border:0;border-radius:11px;padding:10px 13px;font-weight:800;cursor:pointer}.icon-btn{background:rgba(255,255,255,.12);color:#fff;padding:9px 10px}.btn{background:var(--purple);color:#fff;box-shadow:0 5px 14px rgba(75,13,97,.16)}.btn.secondary{background:#fff;color:var(--purple);border:1px solid var(--line);box-shadow:none}.btn.ok{background:var(--ok)}.btn.danger{background:var(--danger)}.btn.ghost{background:transparent;color:var(--purple);border:1px solid var(--line);box-shadow:none}.btn.small{padding:8px 10px;font-size:12px;border-radius:9px}.content{padding:10px}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);padding:13px}.section{margin-bottom:13px}.section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin:14px 2px 8px}.section-title h2,.section-title h3{margin:0;font-size:18px}.section-title span{color:var(--muted);font-size:12px}.hero{background:linear-gradient(135deg,#fff,#f7eafa);border-color:#e4cce8}.field{display:grid;gap:5px;margin-bottom:10px}.field label{font-size:12px;font-weight:850;color:#5e5362}.input,.select,.textarea{width:100%;border:1px solid #d8cadd;border-radius:11px;background:#fff;padding:11px 12px;outline:none}.input:focus,.select:focus,.textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(210,107,197,.14)}.textarea{min-height:84px;resize:vertical}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.team-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--pink);border-radius:14px;padding:9px}.team-title{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px}.team-title strong{font-size:15px}.team-title span{font-size:10px;color:var(--muted)}.player-row{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;margin:5px 0}.player-row .input{padding:8px 9px;font-size:13px}.setup-actions{display:flex;flex-wrap:wrap;gap:7px}.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:10px;text-align:center}.stat .n{font-size:24px;font-weight:950;color:var(--purple)}.stat .l{font-size:10px;color:var(--muted);font-weight:750}.round{margin-top:11px}.round-head{display:flex;justify-content:space-between;align-items:center;gap:7px;background:#f0e5f3;border:1px solid #dfc9e4;border-radius:12px;padding:8px 10px}.round-head strong{font-size:13px}.pill{display:inline-block;background:#eee3f0;color:var(--purple);font-size:10px;font-weight:850;padding:4px 7px;border-radius:999px}.match{margin-top:7px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}.match-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.match-name{font-weight:900}.badge{font-size:10px;font-weight:850;color:#695e6f;background:#f6f0f6;border-radius:999px;padding:4px 7px}.scoreline{display:grid;grid-template-columns:minmax(0,1fr) 62px 16px 62px minmax(0,1fr);gap:5px;align-items:center;margin-top:9px}.team-side{font-weight:900;font-size:13px;overflow:hidden;text-overflow:ellipsis}.team-side.right{text-align:right}.vs{text-align:center;font-weight:900;color:var(--muted)}.score-input{padding:8px 6px;text-align:center;font-size:22px;font-weight:950;letter-spacing:.5px;min-width:0}.winner{min-height:17px;margin-top:7px;font-size:11px;font-weight:850;color:var(--ok)}.winner.pending{color:var(--muted)}.summary-table{width:100%;border-collapse:separate;border-spacing:0 5px}.summary-table th{font-size:10px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);text-align:left;padding:0 7px}.summary-table td{background:#fff;padding:9px 7px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.summary-table td:first-child{border-left:1px solid var(--line);border-radius:10px 0 0 10px;font-weight:900}.summary-table td:last-child{border-right:1px solid var(--line);border-radius:0 10px 10px 0}.rank-row{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:9px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 11px;margin:6px 0}.rank-pos{font-size:17px;font-weight:950;color:var(--purple);text-align:center}.rank-main strong{display:block;overflow:hidden;text-overflow:ellipsis}.rank-main small,.rank-score small{color:var(--muted);font-size:10px}.rank-score{text-align:right}.rank-score strong{display:block;font-size:17px;color:var(--purple)}.history-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px;margin:7px 0}.history-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.history-top h3{margin:0;font-size:14px}.history-meta{font-size:10px;color:var(--muted);margin-top:2px}.history-actions{display:flex;gap:5px}.detail-list{display:grid;gap:3px;margin-top:8px}.detail-row{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px dashed #ece2ee;font-size:12px}.detail-row:last-child{border-bottom:0}.empty{text-align:center;color:var(--muted);padding:24px 10px}.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:25;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.navbtn{border:0;background:transparent;border-radius:11px;padding:8px 3px;color:#7b6f80;font-weight:850;font-size:10px}.navbtn.active{background:#f2e6f4;color:var(--purple)}.navicon{display:block;font-size:17px;line-height:18px;margin-bottom:2px}.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:90;background:#241a29;color:#fff;padding:10px 13px;border-radius:11px;font-weight:800;font-size:12px;text-align:center;max-width:calc(100vw - 26px);transition:.22s}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-back{position:fixed;inset:0;background:rgba(19,9,23,.60);z-index:80;display:none;align-items:flex-end;justify-content:center}.modal-back.show{display:flex}.modal{width:min(720px,100%);max-height:91vh;overflow:auto;background:#fff;border-radius:20px 20px 0 0;padding:15px}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.close{border:0;background:#f0e9f1;width:38px;height:38px;border-radius:10px}.modal-logo{width:150px;height:150px;object-fit:contain;display:block;margin:0 auto 10px}.champion{background:linear-gradient(135deg,#fff7d9,#fff);border:1px solid #efd899;border-radius:15px;padding:13px;text-align:center;margin-bottom:10px}.champion .label{font-size:11px;color:#8b731a;font-weight:850}.champion .name{font-size:25px;font-weight:950;color:#7a5c00;margin-top:2px}.login-page{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:18px;background:radial-gradient(circle at top,#eee1f0,#f6f2f7 42%,#f6f2f7)}.login-card{width:min(430px,100%);background:#fff;border:1px solid var(--line);border-radius:25px;box-shadow:0 18px 45px rgba(54,10,70,.15);padding:20px}.login-logo{width:220px;height:220px;object-fit:contain;display:block;margin:2px auto 8px}.login-card h1{text-align:center;font-size:22px;margin:0}.login-card .subtitle{text-align:center;color:var(--muted);font-size:12px;margin:4px 0 16px}.login-actions{display:grid;gap:8px}.login-help{font-size:11px;color:var(--muted);text-align:center;margin-top:9px}.user-chip{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);padding:6px 8px;border-radius:999px;font-size:10px;font-weight:800;max-width:135px}.user-chip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.user-card{border:1px solid var(--line);border-radius:14px;padding:10px;background:#fff}.user-card strong{display:block}.user-card small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.user-card .row{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:8px}.danger-zone{border:1px solid #efc7cd;background:#fff5f6}.backup-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media(max-width:620px){.topbar-inner{grid-template-columns:auto minmax(0,1fr)}.top-actions{grid-column:2;justify-content:flex-end;margin-top:-3px}.top-logo{width:104px;height:48px}.brand h1{font-size:15px}.grid2{gap:6px}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.scoreline{grid-template-columns:minmax(0,1fr) 54px 13px 54px minmax(0,1fr)}.team-side{font-size:12px}.admin-grid,.backup-grid{grid-template-columns:1fr}.login-logo{width:190px;height:190px}.content{padding:8px}}
+@media(max-width:390px){.top-logo{width:94px;height:46px}.brand h1{font-size:14px}.top-actions{gap:4px}.user-chip{max-width:112px}.icon-btn{padding:8px}.scoreline{grid-template-columns:minmax(0,1fr) 49px 11px 49px minmax(0,1fr)}.score-input{font-size:20px}.team-side{font-size:11px}.card{padding:11px}.team-card{padding:8px}.login-logo{width:170px;height:170px}}
+</style>
+</head>
+<body>
+<div id="authScreen" class="login-page">
+  <div class="login-card">
+    <img src="logo_1.png" class="login-logo" alt="Voleizinho da Mazela">
+    <h1>Racha de Vôlei</h1>
+    <div class="subtitle">Entre para registrar e acompanhar os rachas</div>
+    <form id="loginForm">
+      <div class="field"><label for="loginEmail">E-mail</label><input id="loginEmail" class="input" type="email" autocomplete="username" required placeholder="seu@email.com"></div>
+      <div class="field"><label for="loginPassword">Senha</label><input id="loginPassword" class="input" type="password" autocomplete="current-password" required placeholder="Sua senha"></div>
+      <div class="login-actions"><button class="btn" type="submit">Entrar</button><button class="btn ghost" type="button" id="resetPasswordBtn">Recuperar senha</button></div>
+    </form>
+    <div class="login-help">A recuperação envia um e-mail seguro para redefinir a senha.</div>
+    <div id="loginMsg" class="login-help"></div>
+  </div>
+</div>
+
+<div id="appScreen" class="app hidden">
+<header class="topbar">
+  <div class="topbar-inner">
+    <img src="logo_2.png" class="top-logo" alt="Voleizinho da Mazela">
+    <div class="brand"><h1>Voleizinho da Mazela</h1><small id="screenTitle">Jogo atual</small></div>
+    <div class="top-actions"><div class="user-chip" id="userChip"><span id="userEmail"></span></div><button class="icon-btn" id="logoutBtn" title="Sair">↪</button></div>
+  </div>
+</header>
+
+<main class="content">
+<section id="screen-jogo" class="screen active">
+  <div class="section hero card"><div class="section-title" style="margin:0 0 7px"><h2>Racha do dia</h2><span id="cloudStatus" class="pill">Conectando...</span></div><div class="field" style="margin:0"><label for="gameDate">Data</label><input id="gameDate" class="input" type="date"></div></div>
+  <div class="section-title"><h2>Equipes</h2><span>até 6 jogadores por equipe</span></div>
+  <div id="teamsGrid" class="grid2"></div>
+  <div class="setup-actions" style="margin:8px 0 14px"><button class="btn secondary small" id="resetGameBtn">Novo racha</button><button class="btn ghost small" id="clearScoresBtn">Limpar placares</button></div>
+  <div class="section-title"><h2>Resumo do racha</h2><span id="gameProgress">0/30 jogos</span></div>
+  <div class="stats-grid" id="liveStats"></div>
+  <div class="section-title"><h2>Partidas</h2><span>2 jogos por rodada · 15 rodadas</span></div>
+  <div id="matches"></div>
+  <div class="section-title"><h2>Observações</h2><span>do jogo como um todo</span></div>
+  <div class="card"><textarea id="notes" class="textarea" placeholder="Ex.: quadra molhada, atraso, falta de jogador, destaque do dia..."></textarea><div class="setup-actions" style="margin-top:8px"><button class="btn ok" id="finishBtn">Finalizar e arquivar racha</button></div></div>
+</section>
+
+<section id="screen-ranking" class="screen">
+  <div class="section-title"><h2>Ranking geral</h2><span id="rankTotal">0 jogadores</span></div>
+  <div class="card hero"><strong>Jogadores mais vitoriosos</strong><div class="muted" style="font-size:12px;margin-top:4px">Cada vitória do time conta para os jogadores escalados naquele racha.</div></div>
+  <div id="rankingList"></div>
+  <div class="section-title"><h2>Ranking das equipes</h2><span>acumulado</span></div>
+  <div id="teamRankingList"></div>
+</section>
+
+<section id="screen-historico" class="screen">
+  <div class="section-title"><h2>Histórico</h2><span id="historyCount">0 rachas</span></div>
+  <div id="historyList"></div>
+</section>
+
+<section id="screen-admin" class="screen">
+  <div class="section-title"><h2>Administração</h2><span>Acesso restrito</span></div>
+  <div class="card">
+    <div class="section-title" style="margin:0 0 8px"><h3>Novo usuário</h3><span>Administrador ou usuário simples</span></div>
+    <div class="admin-grid">
+      <div class="field"><label>Nome</label><input id="newUserName" class="input" autocomplete="off" placeholder="Nome completo"></div>
+      <div class="field"><label>E-mail</label><input id="newUserEmail" class="input" type="email" autocomplete="off" placeholder="usuario@email.com"></div>
+      <div class="field"><label>Nível</label><select id="newUserLevel" class="select"><option value="user">Usuário simples</option><option value="admin">Administrador</option></select></div>
+      <div class="field"><label>Senha inicial</label><input id="newUserPassword" class="input" type="password" autocomplete="new-password" placeholder="mínimo 6 caracteres"></div>
+    </div>
+    <button class="btn" id="createUserBtn">Adicionar usuário</button>
+  </div>
+  <div class="section-title"><h3>Usuários cadastrados</h3><span>sem exibir senhas</span></div>
+  <div id="usersList"></div>
+  <div class="section-title"><h3>Backup</h3><span>somente administradores</span></div>
+  <div class="card backup-grid"><button class="btn secondary" id="exportBtn">Exportar backup</button><label class="btn ghost" style="text-align:center;cursor:pointer">Importar backup<input id="importFile" type="file" accept="application/json,.json" class="hidden"></label></div>
+  <div class="section-title"><h3>Zona de manutenção</h3></div>
+  <div class="card danger-zone"><strong>Apagar todo o histórico</strong><div style="font-size:12px;color:var(--muted);margin:4px 0 9px">Isso remove os rachas arquivados e, por consequência, zera o ranking geral.</div><button class="btn danger" id="deleteAllBtn">Apagar histórico e ranking</button></div>
+</section>
+</main>
+<nav class="bottom-nav" id="bottomNav"><button class="navbtn active" data-screen="jogo"><span class="navicon">🏐</span>Jogo</button><button class="navbtn" data-screen="ranking"><span class="navicon">🏆</span>Ranking</button><button class="navbtn" data-screen="historico"><span class="navicon">🗂️</span>Histórico</button><button class="navbtn hidden" id="adminNav" data-screen="admin"><span class="navicon">⚙️</span>Admin</button></nav>
+</div>
+
+<div class="modal-back" id="modalBack">
+  <div class="modal">
+    <div class="modal-head"><h3 id="modalTitle">Resumo</h3><button class="close" id="modalClose">×</button></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+'use strict';
+const MASTER_ADMIN='pedrosajpo@gmail.com';
+const APP_ID='voleizinho-mazela';
+const SCHEDULE=[[[1,2],[3,4]],[[1,3],[2,4]],[[1,4],[2,3]]];
+const LOCAL_CURRENT='voleizinho_current_v3';
+let app,auth,db,secondaryApp,secondaryAuth;
+let current=loadCurrent();
+let archives=[];
+let users=[];
+let currentUser=null;
+let profile=null;
+let unsubscribeCurrent=null,unsubscribeArchives=null,unsubscribeUsers=null;
+let syncTimer=null;
+let allowRemoteRender=true;
+
+function today(){const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)}
+function esc(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function uid(){return (crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())+'-'+Math.random().toString(16).slice(2)}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>e.classList.remove('show'),2600)}
+function setCloud(text,kind=''){const e=document.getElementById('cloudStatus');if(!e)return;e.textContent=text;e.style.background=kind==='ok'?'#ddf2e5':kind==='err'?'#f8dfe2':'#eee3f0';e.style.color=kind==='ok'?'#1e7340':kind==='err'?'#9a3040':'var(--purple)'}
+function fmtDate(s){if(!s)return '';const [y,m,d]=s.split('-');return `${d}/${m}/${y}`}
+function makeTeam(n){return {name:'Time '+n,players:['','','','','',''],wins:0,points:0}}
+function blankMatches(){const out=[];for(let r=1;r<=15;r++){for(const p of SCHEDULE[(r-1)%3])out.push({id:out.length+1,round:r,a:p[0],b:p[1],sa:'',sb:'',winner:null})}return out}
+function makeCurrent(){return {date:today(),teams:[1,2,3,4].map(makeTeam),matches:blankMatches(),notes:''}}
+function normalize(c){const b=makeCurrent();if(!c)return b;return {date:c.date||b.date,teams:Array.isArray(c.teams)&&c.teams.length===4?c.teams:b.teams,matches:Array.isArray(c.matches)&&c.matches.length===30?c.matches:b.matches,notes:c.notes||''}}
+function loadCurrent(){try{return normalize(JSON.parse(localStorage.getItem(LOCAL_CURRENT)||'null'))}catch{return makeCurrent()}}
+function cacheCurrent(){localStorage.setItem(LOCAL_CURRENT,JSON.stringify(current))}
+function isAdmin(){return !!currentUser && (((currentUser.email||'').toLowerCase()===MASTER_ADMIN) || profile?.nivel==='admin')}
+function userLevelLabel(n){return n==='admin'?'Administrador':'Usuário simples'}
+
+function initFirebase(){
+  app=firebase.initializeApp(window.FIREBASE_CONFIG);
+  auth=firebase.auth(); db=firebase.firestore();
+  secondaryApp=firebase.initializeApp(window.FIREBASE_CONFIG,'secondary-'+Date.now());
+  secondaryAuth=secondaryApp.auth();
+  auth.onAuthStateChanged(handleAuth);
+  document.getElementById('loginForm').addEventListener('submit',login);
+  document.getElementById('resetPasswordBtn').addEventListener('click',resetPassword);
+  document.getElementById('logoutBtn').addEventListener('click',()=>auth.signOut());
+  document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click',()=>switchScreen(b.dataset.screen)));
+  document.getElementById('gameDate').addEventListener('change',e=>{current.date=e.target.value;saveAndSyncCurrent()});
+  document.getElementById('notes').addEventListener('input',e=>{current.notes=e.target.value;saveAndSyncCurrent(true)});
+  document.getElementById('resetGameBtn').addEventListener('click',newGame);
+  document.getElementById('clearScoresBtn').addEventListener('click',clearScores);
+  document.getElementById('finishBtn').addEventListener('click',archiveGame);
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  document.getElementById('modalBack').addEventListener('click',e=>{if(e.target.id==='modalBack')closeModal()});
+  document.getElementById('createUserBtn').addEventListener('click',createUser);
+  document.getElementById('exportBtn').addEventListener('click',exportBackup);
+  document.getElementById('importFile').addEventListener('change',e=>e.target.files[0]&&importBackup(e.target.files[0]));
+  document.getElementById('deleteAllBtn').addEventListener('click',deleteAllHistory);
+}
+
+async function handleAuth(u){
+  currentUser=u;
+  if(!u){showLogin();return}
+  try{
+    setCloud('Carregando...');
+    const ref=db.collection('users').doc(u.uid);
+    const snap=await ref.get();
+    if((u.email||'').toLowerCase()===MASTER_ADMIN){
+      if(!snap.exists) await ref.set({nome:'Administrador principal',email:u.email,nivel:'admin',createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+      profile={nome:snap.exists?snap.data().nome:'Administrador principal',email:u.email,nivel:'admin'};
+    }else{
+      if(!snap.exists){await auth.signOut();setLoginMsg('Usuário não autorizado. Solicite ao administrador o cadastro.','err');return}
+      profile=snap.data();
+      if(!['admin','user'].includes(profile.nivel)){await auth.signOut();setLoginMsg('Nível de acesso inválido.','err');return}
+    }
+    showApp(); subscribeCloud();
+  }catch(err){console.error(err);await auth.signOut();setLoginMsg('Não foi possível validar seu acesso. Verifique a configuração do Firestore.','err')}
+}
+function showLogin(){if(unsubscribeCurrent)unsubscribeCurrent();if(unsubscribeArchives)unsubscribeArchives();if(unsubscribeUsers)unsubscribeUsers();unsubscribeCurrent=unsubscribeArchives=unsubscribeUsers=null;profile=null;users=[];archives=[];document.getElementById('authScreen').classList.remove('hidden');document.getElementById('appScreen').classList.add('hidden')}
+function showApp(){document.getElementById('authScreen').classList.add('hidden');document.getElementById('appScreen').classList.remove('hidden');document.getElementById('userEmail').textContent=profile?.nome||currentUser.email;document.getElementById('gameDate').value=current.date;document.getElementById('notes').value=current.notes||'';const admin=isAdmin();document.getElementById('adminNav').classList.toggle('hidden',!admin);document.getElementById('userChip').title=userLevelLabel(profile?.nivel);renderAll();}
+function setLoginMsg(t,kind=''){const e=document.getElementById('loginMsg');e.textContent=t;e.style.color=kind==='err'?'var(--danger)':'var(--muted)'}
+
+async function login(e){e.preventDefault();setLoginMsg('Entrando...');try{await auth.signInWithEmailAndPassword(document.getElementById('loginEmail').value.trim(),document.getElementById('loginPassword').value)}catch(err){console.error(err);const map={'auth/invalid-credential':'E-mail ou senha incorretos.','auth/user-not-found':'Usuário não encontrado.','auth/wrong-password':'Senha incorreta.','auth/too-many-requests':'Muitas tentativas. Aguarde e tente novamente.'};setLoginMsg(map[err.code]||'Não foi possível entrar.','err')}}
+async function resetPassword(){const email=document.getElementById('loginEmail').value.trim();if(!email){setLoginMsg('Digite seu e-mail para recuperar a senha.','err');return}try{await auth.sendPasswordResetEmail(email);setLoginMsg('E-mail de redefinição enviado. Verifique sua caixa de entrada.');}catch(err){console.error(err);setLoginMsg('Não foi possível enviar o e-mail de recuperação.','err')}}
+
+function subscribeCloud(){
+  if(unsubscribeCurrent)unsubscribeCurrent(); if(unsubscribeArchives)unsubscribeArchives(); if(unsubscribeUsers)unsubscribeUsers();
+  const currentRef=db.collection('racha').doc('current');
+  unsubscribeCurrent=currentRef.onSnapshot(s=>{if(s.exists){const incoming=normalize(s.data());const focused=document.activeElement;const isEditing=focused&&(focused.classList?.contains('score-input')||focused.tagName==='TEXTAREA'||focused.classList?.contains('input'));current=incoming;cacheCurrent();if(!isEditing){document.getElementById('gameDate').value=current.date;document.getElementById('notes').value=current.notes||'';renderGame()}}setCloud('Sincronizado','ok')},err=>{console.error(err);setCloud('Falha','err')});
+  unsubscribeArchives=db.collection('racha').doc('data').collection('archives').orderBy('createdAt','desc').onSnapshot(s=>{archives=s.docs.map(d=>({id:d.id,...d.data()}));renderRanking();renderHistory()},err=>{console.error(err);toast('Não foi possível ler o histórico.')});
+  if(isAdmin()) unsubscribeUsers=db.collection('users').orderBy('createdAt','desc').onSnapshot(s=>{users=s.docs.map(d=>({id:d.id,...d.data()}));renderUsers()},err=>console.error(err));
+}
+function saveAndSyncCurrent(quiet=false){cacheCurrent();if(!db||!currentUser)return;clearTimeout(syncTimer);syncTimer=setTimeout(async()=>{try{await db.collection('racha').doc('current').set({...current,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});setCloud('Sincronizado','ok')}catch(e){console.error(e);setCloud('Erro','err');if(!quiet)toast('Falha ao salvar na nuvem.')}},350)}
+
+function renderAll(){renderGame();renderRanking();renderHistory();renderUsers()}
+function switchScreen(name){if(name==='admin'&&!isAdmin()){toast('Acesso restrito aos administradores.');return}document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id==='screen-'+name));document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.screen===name));document.getElementById('screenTitle').textContent={jogo:'Jogo atual',ranking:'Ranking geral',historico:'Histórico',admin:'Administração'}[name]||'Racha';if(name==='ranking')renderRanking();if(name==='historico')renderHistory();if(name==='admin')renderUsers()}
+function renderGame(){document.getElementById('gameDate').value=current.date;document.getElementById('notes').value=current.notes||'';renderTeams();renderLiveStats();renderMatches()}
+function renderTeams(){document.getElementById('teamsGrid').innerHTML=current.teams.map((t,i)=>`<div class="team-card"><div class="team-title"><strong>${esc(t.name)}</strong><span>${t.players.filter(Boolean).length}/6 jogadores</span></div>${t.players.map((p,j)=>`<div class="player-row"><input class="input player-input" data-ti="${i}" data-pi="${j}" value="${esc(p)}" maxlength="50" placeholder="Jogador ${j+1}"></div>`).join('')}</div>`).join('');document.querySelectorAll('.player-input').forEach(inp=>inp.addEventListener('input',e=>{current.teams[+e.target.dataset.ti].players[+e.target.dataset.pi]=e.target.value;saveAndSyncCurrent(true);e.target.closest('.team-card').querySelector('.team-title span').textContent=current.teams[+e.target.dataset.ti].players.filter(Boolean).length+'/6 jogadores'}))}
+function recalc(){current.teams.forEach(t=>{t.wins=0;t.points=0});current.matches.forEach(m=>{m.winner=null;if(m.sa!==''&&m.sb!==''&&Number.isFinite(+m.sa)&&Number.isFinite(+m.sb)&&+m.sa!==+m.sb){m.winner=+m.sa>+m.sb?m.a:m.b;current.teams[m.a-1].points+=+m.sa;current.teams[m.b-1].points+=+m.sb;current.teams[m.winner-1].wins++}})}
+function renderLiveStats(){recalc();const played=current.matches.filter(m=>m.winner).length;document.getElementById('gameProgress').textContent=`${played}/30 jogos`;document.getElementById('liveStats').innerHTML=current.teams.map(t=>`<div class="stat"><div class="n">${t.wins}</div><div class="l">${esc(t.name)} · vitórias</div><div class="n" style="font-size:19px;margin-top:3px">${t.points}</div><div class="l">pontos</div></div>`).join('')}
+function renderMatches(){const grouped={};current.matches.forEach(m=>(grouped[m.round]??=[]).push(m));document.getElementById('matches').innerHTML=Object.entries(grouped).map(([r,arr])=>`<div class="round"><div class="round-head"><strong>Rodada ${r}</strong><span class="pill">${arr.filter(m=>m.winner).length}/2</span></div>${arr.map(matchHtml).join('')}</div>`).join('');document.querySelectorAll('.score-input').forEach(inp=>{inp.addEventListener('focus',()=>{allowRemoteRender=false});inp.addEventListener('blur',()=>{allowRemoteRender=true});inp.addEventListener('input',e=>{const v=e.target.value.replace(/\D/g,'').slice(0,2);e.target.value=v;const m=current.matches.find(x=>x.id===+e.target.dataset.id);m[e.target.dataset.side]=v;recalc();updateMatchMeta(m);renderLiveStats();saveAndSyncCurrent(true)});});}
+function matchHtml(m){const a=current.teams[m.a-1],b=current.teams[m.b-1];const w=m.winner?(m.winner===m.a?a.name:b.name):'Aguardando placar';return `<div class="match" data-match="${m.id}"><div class="match-top"><div class="match-name">Jogo ${m.id}</div><span class="badge">${m.round}ª rodada</span></div><div class="scoreline"><div class="team-side">${esc(a.name)}</div><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" class="input score-input" data-id="${m.id}" data-side="sa" value="${esc(m.sa)}" aria-label="Pontos ${esc(a.name)}"><div class="vs">x</div><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" class="input score-input" data-id="${m.id}" data-side="sb" value="${esc(m.sb)}" aria-label="Pontos ${esc(b.name)}"><div class="team-side right">${esc(b.name)}</div></div><div class="winner ${m.winner?'':'pending'}" id="winner-${m.id}">${m.winner?'🏆 '+esc(w):'Digite os dois placares para definir o vencedor'}</div></div>`}
+function updateMatchMeta(m){const e=document.getElementById('winner-'+m.id);if(!e)return;e.classList.toggle('pending',!m.winner);if(m.winner){const a=current.teams[m.a-1],b=current.teams[m.b-1];e.innerHTML='🏆 '+esc(m.winner===m.a?a.name:b.name)}else e.textContent='Digite os dois placares para definir o vencedor';const header=e.closest('.round').querySelector('.pill');const r=m.round;const n=current.matches.filter(x=>x.round===r&&x.winner).length;header.textContent=n+'/2'}
+function newGame(){if(!confirm('Começar um novo racha? O racha atual que não foi arquivado será substituído.'))return;current=makeCurrent();saveAndSyncCurrent();renderGame();toast('Novo racha iniciado.')}
+function clearScores(){current.matches=blankMatches();recalc();saveAndSyncCurrent();renderGame();toast('Placares limpos.')}
+
+function validate(){recalc();const incomplete=current.matches.some(m=>(m.sa!==''||m.sb!=='')&&!m.winner);if(incomplete)return 'Existem partidas com apenas um placar ou empate. Complete ou limpe o placar.';if(!current.matches.some(m=>m.winner))return 'Registre pelo menos uma partida.';return null}
+async function archiveGame(){const err=validate();if(err){toast(err);return}if(!confirm('Finalizar e arquivar este racha?'))return;recalc();const archive={id:uid(),date:current.date,teams:JSON.parse(JSON.stringify(current.teams)),matches:JSON.parse(JSON.stringify(current.matches)),notes:(current.notes||'').trim(),createdAt:firebase.firestore.FieldValue.serverTimestamp()};try{await db.collection('racha').doc('data').collection('archives').doc(archive.id).set({...archive});await db.collection('racha').doc('current').set({...makeCurrent(),updatedAt:firebase.firestore.FieldValue.serverTimestamp()});current=makeCurrent();cacheCurrent();renderGame();showSummary(archive);toast('Racha arquivado com sucesso.')}catch(e){console.error(e);toast('Não foi possível arquivar. Verifique a conexão.')}}
+function summaryHtml(a){const sorted=[...a.teams].sort((x,y)=>y.wins-x.wins||y.points-x.points);const champ=sorted[0];return `<img src="logo_1.png" class="modal-logo" alt="Voleizinho da Mazela"><div class="champion"><div class="label">CAMPEÃO DO RACHA</div><div class="name">🏆 ${esc(champ.name)}</div><div style="font-size:12px;margin-top:4px">${champ.wins} vitória(s) · ${champ.points} ponto(s)</div></div><table class="summary-table"><thead><tr><th>Equipe</th><th>Vitórias</th><th>Pontos</th></tr></thead><tbody>${sorted.map((t,i)=>`<tr><td>${i===0?'🥇 ':''}${esc(t.name)}</td><td>${t.wins}</td><td>${t.points}</td></tr>`).join('')}</tbody></table>${a.notes?`<div style="margin-top:10px;font-size:12px;color:var(--muted)"><strong>Observações:</strong> ${esc(a.notes)}</div>`:''}<div class="setup-actions" style="margin-top:12px"><button class="btn" onclick="closeModal();switchScreen('historico')">Ir para histórico</button></div>`}
+function showSummary(a){document.getElementById('modalTitle').textContent='Resumo do racha';document.getElementById('modalBody').innerHTML=summaryHtml(a);document.getElementById('modalBack').classList.add('show')}
+function closeModal(){document.getElementById('modalBack').classList.remove('show')}
+
+function calcRanking(){const p={},t={};for(const a of archives){for(const team of a.teams){t[team.name]??={wins:0,points:0,games:0};t[team.name].wins+=team.wins;t[team.name].points+=team.points;t[team.name].games++;for(const name of team.players.filter(Boolean)){p[name]??={wins:0,games:0};p[name].wins+=team.wins;p[name].games++}}}const players=Object.entries(p).map(([name,x])=>({name,...x,rate:x.games?x.wins/x.games:0})).sort((a,b)=>b.wins-a.wins||b.rate-a.rate||a.name.localeCompare(b.name));const teams=Object.entries(t).map(([name,x])=>({name,...x})).sort((a,b)=>b.wins-a.wins||b.points-a.points);return {players,teams}}
+function renderRanking(){const {players,teams}=calcRanking();document.getElementById('rankTotal').textContent=`${players.length} jogadores · ${archives.length} rachas`;document.getElementById('rankingList').innerHTML=players.length?players.map((p,i)=>`<div class="rank-row"><div class="rank-pos">${i+1}</div><div class="rank-main"><strong>${esc(p.name)}</strong><small>${p.games} racha(s) · ${Math.round(p.rate*100)}% de aproveitamento</small></div><div class="rank-score"><strong>${p.wins}</strong><small>vitórias</small></div></div>`).join(''):'<div class="empty">Ainda não há rachas arquivados.</div>';document.getElementById('teamRankingList').innerHTML=teams.length?teams.map((t,i)=>`<div class="rank-row"><div class="rank-pos">${i+1}</div><div class="rank-main"><strong>${esc(t.name)}</strong><small>${t.games} racha(s) · ${t.points} pontos</small></div><div class="rank-score"><strong>${t.wins}</strong><small>vitórias</small></div></div>`).join(''):'<div class="empty">Sem dados de equipes ainda.</div>'}
+function renderHistory(){document.getElementById('historyCount').textContent=`${archives.length} racha(s)`;const admin=isAdmin();const e=document.getElementById('historyList');if(!archives.length){e.innerHTML='<div class="empty">Nenhum racha arquivado.</div>';return}e.innerHTML=archives.map(a=>{const sorted=[...a.teams].sort((x,y)=>y.wins-x.wins||y.points-x.points);return `<div class="history-card"><div class="history-top"><div><h3>🏐 Racha de ${fmtDate(a.date)}</h3><div class="history-meta">${a.matches.filter(m=>m.winner).length} jogos · campeão: ${esc(sorted[0]?.name||'—')}</div></div><div class="history-actions"><button class="btn secondary small" data-view="${a.id}">Ver resumo</button>${admin?`<button class="btn danger small" data-delete="${a.id}">Excluir</button>`:''}</div></div><div class="detail-list">${sorted.map(t=>`<div class="detail-row"><span>${esc(t.name)}</span><strong>${t.wins} V · ${t.points} pts</strong></div>`).join('')}</div>${a.notes?`<div style="margin-top:7px;font-size:11px;color:var(--muted)"><strong>Obs.:</strong> ${esc(a.notes)}</div>`:''}</div>`}).join('');document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{const a=archives.find(x=>x.id===b.dataset.view);if(a)showSummary(a)});document.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>deleteArchive(b.dataset.delete))}
+async function deleteArchive(id){if(!isAdmin())return toast('Acesso restrito.');if(!confirm('Excluir este racha do histórico? O ranking será recalculado.'))return;try{await db.collection('racha').doc('data').collection('archives').doc(id).delete();toast('Racha excluído.')}catch(e){console.error(e);toast('Não foi possível excluir.')}}
+
+function renderUsers(){if(!isAdmin())return;const e=document.getElementById('usersList');if(!users.length){e.innerHTML='<div class="empty">Nenhum usuário cadastrado.</div>';return}e.innerHTML=users.map(u=>`<div class="user-card"><strong>${esc(u.nome||'Sem nome')}</strong><small>${esc(u.email||'')} · ${userLevelLabel(u.nivel)}</small><div class="row"><span class="pill">${u.id===currentUser?.uid?'Você':userLevelLabel(u.nivel)}</span>${u.id===currentUser?.uid?'':`<button class="btn danger small" data-user-delete="${u.id}">Remover</button>`}</div></div>`).join('');document.querySelectorAll('[data-user-delete]').forEach(b=>b.onclick=()=>deleteUserProfile(b.dataset.userDelete))}
+async function createUser(){if(!isAdmin())return;const nome=document.getElementById('newUserName').value.trim(),email=document.getElementById('newUserEmail').value.trim().toLowerCase(),nivel=document.getElementById('newUserLevel').value,senha=document.getElementById('newUserPassword').value;if(!nome||!email||senha.length<6){toast('Preencha nome, e-mail e uma senha de pelo menos 6 caracteres.');return}try{const cred=await secondaryAuth.createUserWithEmailAndPassword(email,senha);await db.collection('users').doc(cred.user.uid).set({nome,email,nivel,createdAt:firebase.firestore.FieldValue.serverTimestamp()});await secondaryAuth.signOut();document.getElementById('newUserName').value='';document.getElementById('newUserEmail').value='';document.getElementById('newUserPassword').value='';toast('Usuário criado com sucesso.')}catch(e){console.error(e);const map={'auth/email-already-in-use':'Este e-mail já está cadastrado.','auth/invalid-email':'E-mail inválido.','auth/weak-password':'Senha muito fraca.'};toast(map[e.code]||'Não foi possível criar o usuário.')}}
+async function deleteUserProfile(id){if(!isAdmin()||id===currentUser?.uid)return;if(!confirm('Remover o acesso deste usuário? O registro do perfil será apagado.'))return;try{await db.collection('users').doc(id).delete();toast('Perfil removido. A conta de login do Firebase permanece e pode ser bloqueada pelo Console do Firebase.')}catch(e){console.error(e);toast('Não foi possível remover o perfil.')}}
+
+async function exportBackup(){if(!isAdmin())return;try{const payload={version:2,exportedAt:new Date().toISOString(),current,archives,users:users.map(({id,nome,email,nivel,createdAt})=>({id,nome,email,nivel,createdAt}))};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`backup_voleizinho_${today()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('Backup exportado.')}catch(e){console.error(e);toast('Falha ao gerar backup.')}}
+async function importBackup(file){if(!isAdmin())return;try{const data=JSON.parse(await file.text());if(!Array.isArray(data.archives))throw new Error('backup inválido');if(!confirm(`Importar ${data.archives.length} racha(s) para a nuvem? Registros com o mesmo ID serão substituídos.`))return;let batch=db.batch(),count=0;for(const a of data.archives){const id=a.id||uid();const ref=db.collection('racha').doc('data').collection('archives').doc(id);const {_id,...payload}=a;batch.set(ref,payload);count++;if(count===450){await batch.commit();batch=db.batch();count=0}}if(count)await batch.commit();if(data.current){current=normalize(data.current);await db.collection('racha').doc('current').set({...current,updatedAt:firebase.firestore.FieldValue.serverTimestamp()})}toast('Backup importado com sucesso.')}catch(e){console.error(e);toast('Backup inválido ou não foi possível importar.')}finally{document.getElementById('importFile').value=''}}
+async function deleteAllHistory(){if(!isAdmin())return;if(!archives.length)return toast('Não há histórico para apagar.');if(!confirm('ATENÇÃO: apagar todo o histórico vai zerar o ranking. Continuar?'))return;try{let batch=db.batch(),count=0;for(const a of archives){batch.delete(db.collection('racha').doc('data').collection('archives').doc(a.id));count++;if(count===450){await batch.commit();batch=db.batch();count=0}}if(count)await batch.commit();toast('Histórico e ranking apagados.')}catch(e){console.error(e);toast('Não foi possível apagar todo o histórico.')}}
+
+window.closeModal=closeModal;window.switchScreen=switchScreen;
+initFirebase();
+</script>
+</body></html>
