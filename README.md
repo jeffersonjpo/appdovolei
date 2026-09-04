@@ -1,66 +1,40 @@
-# Voleizinho da Mazela — versão online
+# Voleizinho da Mazela — Racha de Vôlei Online
 
-## Arquivos para o GitHub Pages
-- `index.html`
-- `firebase-config.js`
-- `firestore.rules`
-- `logo_1.png`
-- `logo_2.png`
+## Arquivos
+- index.html — aplicação completa
+- logo_1.png — logo da tela de login e resumo final
+- logo_2.png — logo das demais telas
+- firestore.rules — regras do Firestore
+- firebase-config.js — configuração de referência; o index.html já contém a configuração para evitar erro de arquivo ausente
 
-## Firebase
-O projeto já está apontado para o Firebase informado no pedido.
+## Publicação no GitHub Pages
+Envie os arquivos diretamente para a raiz do repositório. Não coloque uma pasta dentro de outra.
 
-### Authentication
-Ative o provedor **Email/Password** em:
-Firebase Console → Authentication → Sign-in method → Email/Password.
+No GitHub: Settings > Pages > Deploy from a branch > main > /(root).
 
-O administrador principal é reconhecido pelo e-mail:
-`pedrosajpo@gmail.com`
+## Firebase Authentication
+Em Authentication > Sign-in method, habilite Email/Password.
 
-Como esse usuário já foi criado no Firebase Authentication, basta entrar com o e-mail e senha cadastrados.
+Em Authentication > Settings > Authorized domains, adicione o domínio do GitHub Pages. Exemplo:
+SEUUSUARIO.github.io
 
-### Firestore
-Crie o banco Firestore se ainda não existir e publique as regras do arquivo `firestore.rules`.
+Se estiver usando um endereço personalizado, adicione também esse domínio.
 
-A estrutura usada é:
-- `users/{uid}` — nome, e-mail, nível (`admin` ou `user`)
-- `racha/current` — racha em andamento compartilhado entre os aparelhos
-- `racha/data/archives/{id}` — rachas finalizados/arquivados
+## Firestore
+Crie/abra o Firestore Database e publique o conteúdo de firestore.rules na aba Rules.
 
-### Importante sobre criação de usuários
-O administrador cria novos usuários dentro do próprio sistema usando uma segunda instância do Firebase Authentication. Isso permite cadastrar e-mail + senha sem desconectar o administrador principal.
+As regras atuais permitem:
+- usuários autenticados consultarem e registrarem rachas;
+- administradores gerenciarem usuários e excluírem histórico;
+- usuário simples não acessar funções administrativas.
 
-O Firebase não envia a senha inicial para o novo usuário. A senha informada pelo administrador é usada para criar a conta. O usuário pode utilizar **Recuperar senha** na tela de login para receber o e-mail seguro de redefinição do Firebase.
+## Administrador principal
+O e-mail pedrosajpo@gmail.com é reconhecido pelo aplicativo como administrador principal.
 
-### Remoção de usuários
-O painel remove o perfil de acesso da coleção `users`. A conta de autenticação (Firebase Authentication) não pode ser excluída com segurança pelo navegador sem o Admin SDK / Cloud Functions. Para excluir definitivamente a conta de login, use o Console do Firebase.
+A primeira vez que esse administrador entrar, o aplicativo cria/atualiza o perfil dele em users/{UID}.
 
-### Publicação no GitHub Pages
-1. Crie um repositório no GitHub.
-2. Envie os cinco arquivos para a raiz do repositório.
-3. Vá em **Settings → Pages**.
-4. Em **Build and deployment**, selecione **Deploy from a branch**.
-5. Escolha `main` e `/ (root)`.
-6. Salve e aguarde a publicação.
+## Recuperação de senha
+Na tela de login, informe o e-mail e toque em Recuperar senha. O Firebase envia o e-mail oficial de redefinição. Para funcionar pelo GitHub Pages, o domínio do site precisa estar em Authorized domains.
 
-## Funções de acesso
-### Administrador
-- Registrar rachas
-- Consultar ranking e histórico
-- Adicionar administradores e usuários simples
-- Remover perfis de usuário
-- Excluir rachas
-- Apagar todo o histórico (o ranking é recalculado e zera)
-- Exportar e importar backup
-
-### Usuário simples
-- Registrar o racha
-- Consultar ranking
-- Consultar histórico
-- Visualizar resumo final
-- Não vê o menu Administração, backup ou exclusão de histórico
-
-## Logos
-- `logo_1.png`: tela de login e resumo final.
-- `logo_2.png`: cabeçalho das demais telas.
-As logos usam `object-fit: contain` e área reservada para evitar cortes.
+## Importante
+A configuração Web do Firebase que aparece no código não substitui Security Rules. Nunca coloque senhas de usuários no GitHub. A senha fica no Firebase Authentication.

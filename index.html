@@ -99,7 +99,18 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="firebase-config.js"></script>
+<script>
+// Configuração Firebase do projeto Voleizinho da Mazela.
+// A configuração Web do Firebase não é uma senha; a proteção real fica no Authentication e nas Security Rules.
+window.FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCXymOSXmg4bB18qQ1a6ey9S5PsXu-YNA8",
+  authDomain: "appvolei-c5e70.firebaseapp.com",
+  projectId: "appvolei-c5e70",
+  storageBucket: "appvolei-c5e70.firebasestorage.app",
+  messagingSenderId: "22704143116",
+  appId: "1:22704143116:web:1e779622f132a10452e729"
+};
+</script>
 <script>
 'use strict';
 const MASTER_ADMIN='pedrosajpo@gmail.com';
@@ -132,6 +143,11 @@ function isAdmin(){return !!currentUser && (((currentUser.email||'').toLowerCase
 function userLevelLabel(n){return n==='admin'?'Administrador':'Usuário simples'}
 
 function initFirebase(){
+  if(!window.FIREBASE_CONFIG || !window.FIREBASE_CONFIG.projectId){
+    setLoginMsg('Configuração do Firebase não encontrada. Verifique o arquivo publicado no GitHub.','err');
+    return;
+  }
+  try {
   app=firebase.initializeApp(window.FIREBASE_CONFIG);
   auth=firebase.auth(); db=firebase.firestore();
   secondaryApp=firebase.initializeApp(window.FIREBASE_CONFIG,'secondary-'+Date.now());
@@ -152,6 +168,10 @@ function initFirebase(){
   document.getElementById('exportBtn').addEventListener('click',exportBackup);
   document.getElementById('importFile').addEventListener('change',e=>e.target.files[0]&&importBackup(e.target.files[0]));
   document.getElementById('deleteAllBtn').addEventListener('click',deleteAllHistory);
+  } catch(err) {
+    console.error(err);
+    setLoginMsg('Falha ao iniciar o Firebase. Confira o domínio autorizado e a configuração do projeto.','err');
+  }
 }
 
 async function handleAuth(u){
@@ -176,8 +196,51 @@ function showLogin(){if(unsubscribeCurrent)unsubscribeCurrent();if(unsubscribeAr
 function showApp(){document.getElementById('authScreen').classList.add('hidden');document.getElementById('appScreen').classList.remove('hidden');document.getElementById('userEmail').textContent=profile?.nome||currentUser.email;document.getElementById('gameDate').value=current.date;document.getElementById('notes').value=current.notes||'';const admin=isAdmin();document.getElementById('adminNav').classList.toggle('hidden',!admin);document.getElementById('userChip').title=userLevelLabel(profile?.nivel);renderAll();}
 function setLoginMsg(t,kind=''){const e=document.getElementById('loginMsg');e.textContent=t;e.style.color=kind==='err'?'var(--danger)':'var(--muted)'}
 
-async function login(e){e.preventDefault();setLoginMsg('Entrando...');try{await auth.signInWithEmailAndPassword(document.getElementById('loginEmail').value.trim(),document.getElementById('loginPassword').value)}catch(err){console.error(err);const map={'auth/invalid-credential':'E-mail ou senha incorretos.','auth/user-not-found':'Usuário não encontrado.','auth/wrong-password':'Senha incorreta.','auth/too-many-requests':'Muitas tentativas. Aguarde e tente novamente.'};setLoginMsg(map[err.code]||'Não foi possível entrar.','err')}}
-async function resetPassword(){const email=document.getElementById('loginEmail').value.trim();if(!email){setLoginMsg('Digite seu e-mail para recuperar a senha.','err');return}try{await auth.sendPasswordResetEmail(email);setLoginMsg('E-mail de redefinição enviado. Verifique sua caixa de entrada.');}catch(err){console.error(err);setLoginMsg('Não foi possível enviar o e-mail de recuperação.','err')}}
+async function login(e){
+  e.preventDefault();
+  setLoginMsg('Entrando...');
+  const email=document.getElementById('loginEmail').value.trim().toLowerCase();
+  const senha=document.getElementById('loginPassword').value;
+  try{
+    if(!auth) throw Object.assign(new Error('Firebase não inicializado'),{code:'app/not-initialized'});
+    await auth.signInWithEmailAndPassword(email,senha);
+  }catch(err){
+    console.error(err);
+    const map={
+      'auth/invalid-credential':'E-mail ou senha incorretos.',
+      'auth/user-not-found':'Usuário não encontrado.',
+      'auth/wrong-password':'Senha incorreta.',
+      'auth/invalid-email':'E-mail inválido.',
+      'auth/user-disabled':'Esta conta foi desativada.',
+      'auth/too-many-requests':'Muitas tentativas. Aguarde e tente novamente.',
+      'app/not-initialized':'O Firebase não foi inicializado. Verifique a publicação do site.'
+    };
+    setLoginMsg(map[err.code]||('Não foi possível entrar ('+(err.code||'erro')+').'),'err');
+  }
+}
+async function resetPassword(){
+  const email=document.getElementById('loginEmail').value.trim().toLowerCase();
+  if(!email){setLoginMsg('Digite seu e-mail no campo acima para recuperar a senha.','err');return}
+  if(!auth){setLoginMsg('O Firebase ainda não foi inicializado. Recarregue a página.','err');return}
+  try{
+    const actionCodeSettings={
+      url:window.location.href.split('#')[0],
+      handleCodeInApp:false
+    };
+    await auth.sendPasswordResetEmail(email,actionCodeSettings);
+    setLoginMsg('E-mail de redefinição enviado. Verifique também Spam, Lixo eletrônico e Promoções.');
+  }catch(err){
+    console.error(err);
+    const map={
+      'auth/invalid-email':'O e-mail informado é inválido.',
+      'auth/user-not-found':'Não encontramos uma conta com esse e-mail.',
+      'auth/unauthorized-continue-uri':'O endereço do GitHub Pages não está autorizado no Firebase.',
+      'auth/invalid-continue-uri':'Não foi possível validar o endereço do site.',
+      'auth/too-many-requests':'Muitas solicitações. Aguarde alguns minutos e tente novamente.'
+    };
+    setLoginMsg(map[err.code]||('Não foi possível enviar a recuperação ('+(err.code||'erro')+').'),'err');
+  }
+}
 
 function subscribeCloud(){
   if(unsubscribeCurrent)unsubscribeCurrent(); if(unsubscribeArchives)unsubscribeArchives(); if(unsubscribeUsers)unsubscribeUsers();
